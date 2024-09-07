@@ -17,22 +17,16 @@ for i in range(n):
 shift = n
 for row in range(m):
     slice = Photo[row]
-    current_shift = shift
-    stone_start = 0
-    stone_end = 0
-    depth_iter = 0
+    current_shift = 0
+    depth_iter = n-1
     item = 0
-    while (depth_iter<n and item!=2):
+    while (depth_iter>=0 and item!=1):
         item = slice[depth_iter]
-        depth_iter += 1
-        if (stone_start==0 and item==1):
-            stone_start = 1
-        if (stone_start==1 and item!=1):
-            stone_end = 1
-            stone_start = 0
-            current_shift = 0
-        if (stone_end==1 and item==0):
+        depth_iter -= 1
+        if (item==0):
             current_shift += 1
+            if depth_iter==0:
+                current_shift = n
     if current_shift<shift:
         shift = current_shift
 
