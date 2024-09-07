@@ -18,9 +18,9 @@ N1 = years_passed // 400
 N2 = years_passed // 4
 N3 = years_passed // 100
 
-birthday1 = N1 + N2 - N3
-if ((month2 > 2 and (year2%400==0 or (year2%4==0 and year2%100!=0))) or (month2==2 and day2==29)):
-    birthday1 += 1
+birthday1 = N1 + N2 - N3 + 1
+if (month2 == 1 or (month2==2 and day2<29)):
+    birthday1 -= 1
 
 if (day1 == 29 and month1 == 2):
     birthday2 = birthday1
